@@ -42,7 +42,7 @@
             labelTitle.AutoSize = true;
             labelTitle.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
             labelTitle.Location = new System.Drawing.Point(120, 20);
-            labelTitle.Text = "PET STORE LOGIN";
+            labelTitle.Text = "Z618 STORE LOGIN";
 
             // USER
             lblTaiKhoan.AutoSize = true;

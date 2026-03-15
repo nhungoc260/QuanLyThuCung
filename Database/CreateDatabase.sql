@@ -197,6 +197,25 @@ ORDER BY CreatedDate DESC
 END
 GO
 
+IF OBJECT_ID('sp_UserLogin','P') IS NOT NULL
+DROP PROCEDURE sp_UserLogin
+GO
+
+CREATE PROCEDURE sp_UserLogin
+@Username NVARCHAR(50),
+@Password NVARCHAR(255)
+AS
+BEGIN
+
+SELECT *
+FROM Users
+WHERE Username=@Username
+AND PasswordHash=@Password
+AND IsActive=1
+
+END
+GO
+
 -- =============================================
 -- TRIGGER
 -- =============================================
