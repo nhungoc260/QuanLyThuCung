@@ -1,9 +1,7 @@
 ﻿using HTQuanLyThuCung;
 using HTQuanLyThuCung.Helpers;
+using QuanLyThuCung;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HTQuanLyThuCung
@@ -16,14 +14,12 @@ namespace HTQuanLyThuCung
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            // Uncomment dòng dưới để mở form tính hash (dùng để tạo script SQL)
-            // Application.Run(new frmHashPassword());
+            frmKhachHang khachHangForm = new frmKhachHang();
+            FontHelper.SetUnicodeFont(khachHangForm);
+            Application.Run(khachHangForm);
 
-            // Form đăng nhập chính
-            frmDangNhap loginForm = new frmDangNhap();
-            FontHelper.SetUnicodeFont(loginForm);
-            Application.Run(loginForm);
+            
+          
         }
     }
 }
-

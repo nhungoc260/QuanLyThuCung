@@ -73,6 +73,18 @@
     <Compile Include="frmDangNhap.Designer.cs">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKhachHang.Designer.cs">
+      <DependentUpon>frmKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmKhachHang_ChiTiet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKhachHang_ChiTiet.Designer.cs">
+      <DependentUpon>frmKhachHang_ChiTiet.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmQuenMK.cs">
       <SubType>Form</SubType>
     </Compile>
