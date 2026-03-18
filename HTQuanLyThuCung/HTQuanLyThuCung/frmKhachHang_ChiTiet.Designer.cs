@@ -73,8 +73,8 @@
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 0);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Padding = new System.Windows.Forms.Padding(35, 30, 35, 30);
-            this.panelMain.Size = new System.Drawing.Size(1000, 750);
+            this.panelMain.Padding = new System.Windows.Forms.Padding(20, 20, 20, 20);
+            this.panelMain.Size = new System.Drawing.Size(900, 650);
             this.panelMain.TabIndex = 0;
             // 
             // dgvPets
@@ -94,12 +94,12 @@
             this.colPetDelete});
             this.dgvPets.EnableHeadersVisualStyles = false;
             this.dgvPets.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.dgvPets.Location = new System.Drawing.Point(35, 620);
+            this.dgvPets.Location = new System.Drawing.Point(20, 520);
             this.dgvPets.Name = "dgvPets";
             this.dgvPets.ReadOnly = true;
             this.dgvPets.RowHeadersVisible = false;
             this.dgvPets.RowTemplate.Height = 35;
-            this.dgvPets.Size = new System.Drawing.Size(930, 110);
+            this.dgvPets.Size = new System.Drawing.Size(860, 110);
             this.dgvPets.TabIndex = 19;
             this.dgvPets.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPets_CellContentClick);
             // 
@@ -109,7 +109,7 @@
             this.colPetId.Name = "colPetId";
             this.colPetId.ReadOnly = true;
             this.colPetId.Visible = false;
-            this.colPetId.Width = 50;
+            this.colPetId.Width = 40;
             // 
             // colPetName
             // 
@@ -130,43 +130,49 @@
             this.colPetBreed.HeaderText = "Giống";
             this.colPetBreed.Name = "colPetBreed";
             this.colPetBreed.ReadOnly = true;
-            this.colPetBreed.Width = 200;
+            this.colPetBreed.Width = 180;
             // 
             // colPetAge
             // 
             this.colPetAge.HeaderText = "Tuổi";
             this.colPetAge.Name = "colPetAge";
             this.colPetAge.ReadOnly = true;
-            this.colPetAge.Width = 80;
+            this.colPetAge.Width = 60;
             // 
-            // colPetEdit
+            // colPetEdit - SỬA (ĐÃ FIX CHỮ KHÔNG BỊ CHÈN)
             // 
             this.colPetEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.colPetEdit.HeaderText = "Thao tác";
             this.colPetEdit.Name = "colPetEdit";
             this.colPetEdit.ReadOnly = true;
-            this.colPetEdit.Text = "✏️";
+            this.colPetEdit.Text = "✏️ Sửa";
+            this.colPetEdit.ToolTipText = "Sửa thông tin";
             this.colPetEdit.UseColumnTextForButtonValue = true;
-            this.colPetEdit.Width = 80;
+            this.colPetEdit.Width = 110;
+            this.colPetEdit.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colPetEdit.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F);
             // 
-            // colPetDelete
+            // colPetDelete - XÓA (ĐÃ FIX CHỮ KHÔNG BỊ CHÈN)
             // 
             this.colPetDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.colPetDelete.HeaderText = "";
             this.colPetDelete.Name = "colPetDelete";
             this.colPetDelete.ReadOnly = true;
-            this.colPetDelete.Text = "🗑";
+            this.colPetDelete.Text = "🗑 Xóa";
+            this.colPetDelete.ToolTipText = "Xóa thú cưng";
             this.colPetDelete.UseColumnTextForButtonValue = true;
-            this.colPetDelete.Width = 60;
+            this.colPetDelete.Width = 100;
+            this.colPetDelete.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colPetDelete.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F);
             // 
             // lblPets
             // 
             this.lblPets.AutoSize = true;
-            this.lblPets.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.lblPets.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.lblPets.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
-            this.lblPets.Location = new System.Drawing.Point(32, 585);
+            this.lblPets.Location = new System.Drawing.Point(20, 492);
             this.lblPets.Name = "lblPets";
-            this.lblPets.Size = new System.Drawing.Size(198, 25);
+            this.lblPets.Size = new System.Drawing.Size(150, 21);
             this.lblPets.TabIndex = 18;
             this.lblPets.Text = "Danh sách thú cưng";
             // 
@@ -179,9 +185,9 @@
             this.btnAddPet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddPet.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnAddPet.ForeColor = System.Drawing.Color.White;
-            this.btnAddPet.Location = new System.Drawing.Point(865, 587);
+            this.btnAddPet.Location = new System.Drawing.Point(780, 492);
             this.btnAddPet.Name = "btnAddPet";
-            this.btnAddPet.Size = new System.Drawing.Size(100, 30);
+            this.btnAddPet.Size = new System.Drawing.Size(100, 28);
             this.btnAddPet.TabIndex = 17;
             this.btnAddPet.Text = "+ Thêm pet";
             this.btnAddPet.UseVisualStyleBackColor = false;
@@ -201,12 +207,12 @@
             this.colEmployee});
             this.dgvPurchaseHistory.EnableHeadersVisualStyles = false;
             this.dgvPurchaseHistory.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.dgvPurchaseHistory.Location = new System.Drawing.Point(35, 450);
+            this.dgvPurchaseHistory.Location = new System.Drawing.Point(20, 350);
             this.dgvPurchaseHistory.Name = "dgvPurchaseHistory";
             this.dgvPurchaseHistory.ReadOnly = true;
             this.dgvPurchaseHistory.RowHeadersVisible = false;
-            this.dgvPurchaseHistory.RowTemplate.Height = 35;
-            this.dgvPurchaseHistory.Size = new System.Drawing.Size(930, 110);
+            this.dgvPurchaseHistory.RowTemplate.Height = 30;
+            this.dgvPurchaseHistory.Size = new System.Drawing.Size(860, 110);
             this.dgvPurchaseHistory.TabIndex = 16;
             // 
             // colInvoiceId
@@ -214,37 +220,37 @@
             this.colInvoiceId.HeaderText = "Mã HD";
             this.colInvoiceId.Name = "colInvoiceId";
             this.colInvoiceId.ReadOnly = true;
-            this.colInvoiceId.Width = 130;
+            this.colInvoiceId.Width = 100;
             // 
             // colDate
             // 
             this.colDate.HeaderText = "Ngày lập";
             this.colDate.Name = "colDate";
             this.colDate.ReadOnly = true;
-            this.colDate.Width = 280;
+            this.colDate.Width = 220;
             // 
             // colTotal
             // 
             this.colTotal.HeaderText = "Tổng tiền";
             this.colTotal.Name = "colTotal";
             this.colTotal.ReadOnly = true;
-            this.colTotal.Width = 200;
+            this.colTotal.Width = 150;
             // 
             // colEmployee
             // 
             this.colEmployee.HeaderText = "Nhân viên";
             this.colEmployee.Name = "colEmployee";
             this.colEmployee.ReadOnly = true;
-            this.colEmployee.Width = 290;
+            this.colEmployee.Width = 360;
             // 
             // lblPurchaseHistory
             // 
             this.lblPurchaseHistory.AutoSize = true;
-            this.lblPurchaseHistory.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.lblPurchaseHistory.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.lblPurchaseHistory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
-            this.lblPurchaseHistory.Location = new System.Drawing.Point(32, 415);
+            this.lblPurchaseHistory.Location = new System.Drawing.Point(20, 322);
             this.lblPurchaseHistory.Name = "lblPurchaseHistory";
-            this.lblPurchaseHistory.Size = new System.Drawing.Size(198, 25);
+            this.lblPurchaseHistory.Size = new System.Drawing.Size(150, 21);
             this.lblPurchaseHistory.TabIndex = 15;
             this.lblPurchaseHistory.Text = "Lịch sử mua hàng";
             // 
@@ -252,9 +258,9 @@
             // 
             this.panelButtons.Controls.Add(this.btnEdit);
             this.panelButtons.Controls.Add(this.btnClose);
-            this.panelButtons.Location = new System.Drawing.Point(505, 360);
+            this.panelButtons.Location = new System.Drawing.Point(400, 280);
             this.panelButtons.Name = "panelButtons";
-            this.panelButtons.Size = new System.Drawing.Size(460, 45);
+            this.panelButtons.Size = new System.Drawing.Size(480, 35);
             this.panelButtons.TabIndex = 14;
             // 
             // btnEdit
@@ -264,11 +270,11 @@
             this.btnEdit.FlatAppearance.BorderSize = 0;
             this.btnEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(160)))), ((int)(((byte)(71)))));
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEdit.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnEdit.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnEdit.ForeColor = System.Drawing.Color.White;
-            this.btnEdit.Location = new System.Drawing.Point(345, 5);
+            this.btnEdit.Location = new System.Drawing.Point(365, 0);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(110, 38);
+            this.btnEdit.Size = new System.Drawing.Size(100, 32);
             this.btnEdit.TabIndex = 11;
             this.btnEdit.Text = "Sửa";
             this.btnEdit.UseVisualStyleBackColor = false;
@@ -281,11 +287,11 @@
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnClose.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(215, 5);
+            this.btnClose.Location = new System.Drawing.Point(245, 0);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(110, 38);
+            this.btnClose.Size = new System.Drawing.Size(100, 32);
             this.btnClose.TabIndex = 10;
             this.btnClose.Text = "Đóng";
             this.btnClose.UseVisualStyleBackColor = false;
@@ -295,22 +301,22 @@
             // 
             this.txtOtherInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.txtOtherInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtOtherInfo.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtOtherInfo.Location = new System.Drawing.Point(35, 365);
+            this.txtOtherInfo.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtOtherInfo.Location = new System.Drawing.Point(20, 282);
             this.txtOtherInfo.Multiline = true;
             this.txtOtherInfo.Name = "txtOtherInfo";
             this.txtOtherInfo.ReadOnly = true;
-            this.txtOtherInfo.Size = new System.Drawing.Size(450, 38);
+            this.txtOtherInfo.Size = new System.Drawing.Size(360, 30);
             this.txtOtherInfo.TabIndex = 9;
             // 
             // lblOtherInfo
             // 
             this.lblOtherInfo.AutoSize = true;
-            this.lblOtherInfo.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            this.lblOtherInfo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblOtherInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
-            this.lblOtherInfo.Location = new System.Drawing.Point(32, 342);
+            this.lblOtherInfo.Location = new System.Drawing.Point(17, 260);
             this.lblOtherInfo.Name = "lblOtherInfo";
-            this.lblOtherInfo.Size = new System.Drawing.Size(106, 17);
+            this.lblOtherInfo.Size = new System.Drawing.Size(90, 15);
             this.lblOtherInfo.TabIndex = 8;
             this.lblOtherInfo.Text = "Thông tin thêm";
             // 
@@ -318,22 +324,22 @@
             // 
             this.txtEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtEmail.Location = new System.Drawing.Point(495, 270);
+            this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtEmail.Location = new System.Drawing.Point(460, 205);
             this.txtEmail.Multiline = true;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.ReadOnly = true;
-            this.txtEmail.Size = new System.Drawing.Size(470, 38);
+            this.txtEmail.Size = new System.Drawing.Size(420, 30);
             this.txtEmail.TabIndex = 7;
             // 
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            this.lblEmail.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
-            this.lblEmail.Location = new System.Drawing.Point(492, 247);
+            this.lblEmail.Location = new System.Drawing.Point(457, 185);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(42, 17);
+            this.lblEmail.Size = new System.Drawing.Size(39, 15);
             this.lblEmail.TabIndex = 6;
             this.lblEmail.Text = "Email";
             // 
@@ -341,22 +347,22 @@
             // 
             this.txtAddress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.txtAddress.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtAddress.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtAddress.Location = new System.Drawing.Point(35, 270);
+            this.txtAddress.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtAddress.Location = new System.Drawing.Point(20, 205);
             this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.ReadOnly = true;
-            this.txtAddress.Size = new System.Drawing.Size(440, 38);
+            this.txtAddress.Size = new System.Drawing.Size(420, 30);
             this.txtAddress.TabIndex = 5;
             // 
             // lblAddress
             // 
             this.lblAddress.AutoSize = true;
-            this.lblAddress.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            this.lblAddress.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
-            this.lblAddress.Location = new System.Drawing.Point(32, 247);
+            this.lblAddress.Location = new System.Drawing.Point(17, 185);
             this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(56, 17);
+            this.lblAddress.Size = new System.Drawing.Size(50, 15);
             this.lblAddress.TabIndex = 4;
             this.lblAddress.Text = "Địa chỉ";
             // 
@@ -364,22 +370,22 @@
             // 
             this.txtPhone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.txtPhone.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPhone.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtPhone.Location = new System.Drawing.Point(495, 175);
+            this.txtPhone.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtPhone.Location = new System.Drawing.Point(460, 130);
             this.txtPhone.Multiline = true;
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.ReadOnly = true;
-            this.txtPhone.Size = new System.Drawing.Size(470, 38);
+            this.txtPhone.Size = new System.Drawing.Size(420, 30);
             this.txtPhone.TabIndex = 3;
             // 
             // lblPhone
             // 
             this.lblPhone.AutoSize = true;
-            this.lblPhone.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            this.lblPhone.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblPhone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
-            this.lblPhone.Location = new System.Drawing.Point(492, 152);
+            this.lblPhone.Location = new System.Drawing.Point(457, 110);
             this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(95, 17);
+            this.lblPhone.Size = new System.Drawing.Size(85, 15);
             this.lblPhone.TabIndex = 2;
             this.lblPhone.Text = "Số điện thoại";
             // 
@@ -387,22 +393,22 @@
             // 
             this.txtName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtName.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtName.Location = new System.Drawing.Point(35, 175);
+            this.txtName.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtName.Location = new System.Drawing.Point(20, 130);
             this.txtName.Multiline = true;
             this.txtName.Name = "txtName";
             this.txtName.ReadOnly = true;
-            this.txtName.Size = new System.Drawing.Size(440, 38);
+            this.txtName.Size = new System.Drawing.Size(420, 30);
             this.txtName.TabIndex = 1;
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            this.lblName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
-            this.lblName.Location = new System.Drawing.Point(32, 152);
+            this.lblName.Location = new System.Drawing.Point(17, 110);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(35, 17);
+            this.lblName.Size = new System.Drawing.Size(32, 15);
             this.lblName.TabIndex = 0;
             this.lblName.Text = "Tên";
             // 
@@ -411,7 +417,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1000, 750);
+            this.ClientSize = new System.Drawing.Size(900, 650);
             this.Controls.Add(this.panelMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;

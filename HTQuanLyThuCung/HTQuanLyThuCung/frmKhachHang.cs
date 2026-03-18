@@ -15,15 +15,14 @@ namespace QuanLyThuCung
         private int currentMaxId = 0;
         private int currentMaxPetId = 0;
 
-        // ✅ MÀU SẮC CHỦ ĐẠO
-        private readonly Color primaryColor = Color.FromArgb(41, 128, 185);      // Xanh dương đậm
-        private readonly Color secondaryColor = Color.FromArgb(52, 152, 219);    // Xanh dương nhạt
-        private readonly Color accentColor = Color.FromArgb(46, 204, 113);       // Xanh lá
-        private readonly Color dangerColor = Color.FromArgb(231, 76, 60);        // Đỏ cam
-        private readonly Color warningColor = Color.FromArgb(241, 196, 15);      // Vàng
-        private readonly Color bgColor = Color.FromArgb(236, 240, 241);          // Xám nhạt
-        private readonly Color cardColor = Color.White;                           // Trắng
-        private readonly Color textColor = Color.FromArgb(44, 62, 80);           // Xám đậm
+        private readonly Color primaryColor = Color.FromArgb(41, 128, 185);      
+        private readonly Color secondaryColor = Color.FromArgb(52, 152, 219);    
+        private readonly Color accentColor = Color.FromArgb(46, 204, 113);       
+        private readonly Color dangerColor = Color.FromArgb(231, 76, 60);        
+        private readonly Color warningColor = Color.FromArgb(241, 196, 15);      
+        private readonly Color bgColor = Color.FromArgb(236, 240, 241);          
+        private readonly Color cardColor = Color.White;                           
+        private readonly Color textColor = Color.FromArgb(44, 62, 80);           
 
         public frmKhachHang()
         {
@@ -342,11 +341,11 @@ namespace QuanLyThuCung
 
             purchaseHistories = new List<PurchaseHistory>
             {
-                new PurchaseHistory { InvoiceId = 101, CustomerId = 1, Date = new DateTime(2024, 1, 15, 10, 30, 0), TotalAmount = 1250000, Employee = "Nguyễn Thị Hương" },
-                new PurchaseHistory { InvoiceId = 102, CustomerId = 1, Date = new DateTime(2024, 2, 20, 14, 15, 0), TotalAmount = 850000, Employee = "Trần Văn Nam" },
-                new PurchaseHistory { InvoiceId = 103, CustomerId = 2, Date = new DateTime(2024, 3, 5, 9, 45, 0), TotalAmount = 2100000, Employee = "Nguyễn Thị Hương" },
-                new PurchaseHistory { InvoiceId = 104, CustomerId = 3, Date = new DateTime(2024, 3, 10, 16, 20, 0), TotalAmount = 650000, Employee = "Lê Thị Mai" },
-                new PurchaseHistory { InvoiceId = 105, CustomerId = 4, Date = new DateTime(2024, 3, 12, 11, 0, 0), TotalAmount = 1500000, Employee = "Nguyễn Thị Hương" }
+                new PurchaseHistory { InvoiceId = 101, CustomerId = 1, Date = new DateTime(2026, 1, 15, 10, 30, 0), TotalAmount = 1250000, Employee = "Nguyễn Thị Hương" },
+                new PurchaseHistory { InvoiceId = 102, CustomerId = 1, Date = new DateTime(2026, 2, 20, 14, 15, 0), TotalAmount = 850000, Employee = "Trần Văn Nam" },
+                new PurchaseHistory { InvoiceId = 103, CustomerId = 2, Date = new DateTime(2026, 3, 5, 9, 45, 0), TotalAmount = 2100000, Employee = "Nguyễn Thị Hương" },
+                new PurchaseHistory { InvoiceId = 104, CustomerId = 3, Date = new DateTime(2026, 3, 10, 16, 20, 0), TotalAmount = 650000, Employee = "Lê Thị Mai" },
+                new PurchaseHistory { InvoiceId = 105, CustomerId = 4, Date = new DateTime(2026, 3, 12, 11, 0, 0), TotalAmount = 1500000, Employee = "Nguyễn Thị Hương" }
             };
 
             currentMaxPetId = pets.Count > 0 ? pets.Max(p => p.Id) : 0;

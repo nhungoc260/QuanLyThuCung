@@ -65,36 +65,34 @@ namespace HTQuanLyThuCung
             WindowState = FormWindowState.Maximized;
             Text = "Hệ thống quản lý thú cưng";
 
-            // MENU
-
             panelMenu.Dock = DockStyle.Left;
-            panelMenu.Width = 250;
+            panelMenu.Width = 200;
             panelMenu.BackColor = Color.FromArgb(200, 90, 80);
 
             lblLogo = new Label();
             lblLogo.Text = "🐾 Z618";
-            lblLogo.Font = new Font("Segoe UI", 26, FontStyle.Bold);
+            lblLogo.Font = new Font("Segoe UI", 22, FontStyle.Bold);
             lblLogo.ForeColor = Color.White;
 
             lblLogo.AutoSize = false;
-            lblLogo.Width = 250;
-            lblLogo.Height = 80;
+            lblLogo.Width = 200;
+            lblLogo.Height = 70;
 
             lblLogo.TextAlign = ContentAlignment.MiddleCenter;
-            lblLogo.Location = new Point(0, 30);
+            lblLogo.Location = new Point(0, 20);
 
             panelMenu.Controls.Add(lblLogo);
 
-            int top = 150;
+            int top = 130;
 
             CreateButton(btnTrangChu, "🏠 Trang chủ", top, btnTrangChu_Click);
-            CreateButton(btnKhachHang, "👤 Khách hàng", top += 65, btnKhachHang_Click);
-            CreateButton(btnBanHang, "💳 Bán hàng", top += 65, btnBanHang_Click);
-            CreateButton(btnThongKe, "📊 Thống kê", top += 65, btnThongKe_Click);
-            CreateButton(btnHangHoa, "📦 Hàng hóa", top += 65, btnHangHoa_Click);
-            CreateButton(btnDichVu, "❤️ Dịch vụ", top += 65, btnDichVu_Click);
-            CreateButton(btnNhanVien, "👨‍💼 Nhân viên", top += 65, btnNhanVien_Click);
-            CreateButton(btnDangXuat, "🔌 Đăng xuất", top += 80, btnDangXuat_Click);
+            CreateButton(btnKhachHang, "👤 Khách hàng", top += 60, btnKhachHang_Click);
+            CreateButton(btnBanHang, "💳 Bán hàng", top += 60, btnBanHang_Click);
+            CreateButton(btnThongKe, "📊 Thống kê", top += 60, btnThongKe_Click);
+            CreateButton(btnHangHoa, "📦 Hàng hóa", top += 60, btnHangHoa_Click);
+            CreateButton(btnDichVu, "❤️ Dịch vụ", top += 60, btnDichVu_Click);
+            CreateButton(btnNhanVien, "👨‍💼 Nhân viên", top += 60, btnNhanVien_Click);
+            CreateButton(btnDangXuat, "🔌 Đăng xuất", top += 70, btnDangXuat_Click);
 
             panelMenu.Controls.AddRange(new Control[]
             {
@@ -104,7 +102,6 @@ namespace HTQuanLyThuCung
             });
 
             // TOP BAR
-
             panelTop.Dock = DockStyle.Top;
             panelTop.Height = 80;
             panelTop.BackColor = Color.White;
@@ -117,12 +114,10 @@ namespace HTQuanLyThuCung
             panelTop.Controls.Add(lblTitle);
 
             // MAIN
-
             panelMain.Dock = DockStyle.Fill;
             panelMain.BackColor = Color.WhiteSmoke;
 
             // DASHBOARD
-
             panelDashboard.Dock = DockStyle.Fill;
 
             lblPets = CreateCard(80);
@@ -136,7 +131,6 @@ namespace HTQuanLyThuCung
             panelDashboard.Controls.Add(lblAppointments);
 
             // CHART TITLE
-
             lblChartTitle.Text = "📊 Biểu đồ cột hiển thị số liệu";
             lblChartTitle.Font = new Font("Segoe UI", 14, FontStyle.Bold);
             lblChartTitle.Location = new Point(80, 200);
@@ -145,7 +139,6 @@ namespace HTQuanLyThuCung
             panelDashboard.Controls.Add(lblChartTitle);
 
             // CHART
-
             chartStats.Location = new Point(80, 240);
             chartStats.Size = new Size(600, 320);
 
@@ -155,7 +148,6 @@ namespace HTQuanLyThuCung
             panelDashboard.Controls.Add(chartStats);
 
             // TABLE TITLE
-
             lblTableTitle.Text = "📋 Bảng lịch hẹn hôm nay";
             lblTableTitle.Font = new Font("Segoe UI", 14, FontStyle.Bold);
             lblTableTitle.Location = new Point(720, 200);
@@ -164,7 +156,6 @@ namespace HTQuanLyThuCung
             panelDashboard.Controls.Add(lblTableTitle);
 
             // TABLE
-
             dgvAppointments.Location = new Point(720, 240);
             dgvAppointments.Size = new Size(550, 320);
 
@@ -184,14 +175,14 @@ namespace HTQuanLyThuCung
         private void CreateButton(Button btn, string text, int top, EventHandler click)
         {
             btn.Text = text;
-            btn.Width = 250;
-            btn.Height = 60;
+            btn.Width = 200;
+            btn.Height = 55;
             btn.Top = top;
 
             btn.FlatStyle = FlatStyle.Flat;
             btn.FlatAppearance.BorderSize = 0;
 
-            btn.Font = new Font("Segoe UI", 13, FontStyle.Bold);
+            btn.Font = new Font("Segoe UI", 11, FontStyle.Bold);
             btn.ForeColor = Color.White;
             btn.BackColor = Color.FromArgb(200, 90, 80);
 
@@ -199,7 +190,7 @@ namespace HTQuanLyThuCung
         }
 
         private Label CreateCard(int left)
-        {
+        { 
             Label lbl = new Label();
 
             lbl.Width = 220;
