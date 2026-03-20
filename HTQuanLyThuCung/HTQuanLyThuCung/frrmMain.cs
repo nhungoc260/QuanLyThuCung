@@ -80,14 +80,8 @@ namespace HTQuanLyThuCung
             lblTitle.Text = "Bán hàng";
             panelDashboard.Visible = false;
 
-            // ✅ CHƯA LÀM - HIỆN THÔNG BÁO
-            MessageBox.Show("Chức năng Bán hàng đang được phát triển!\nVui lòng quay lại sau.",
-                "Thông báo",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
-
-            // Hoặc mở form trống (nếu bạn của bạn đã tạo)
-            // OpenChildForm(new frmBanHang());
+            // ✅ ĐÃ CÓ CODE - MỞ FORM BÁN HÀNG
+            OpenChildForm(new frmBanHang());
         }
 
         private void btnThongKe_Click(object sender, EventArgs e)

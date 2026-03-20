@@ -61,12 +61,7 @@
       <DependentUpon>CalendarView.cs</DependentUpon>
     </Compile>
     <Compile Include="DataAccess\DatabaseHelper.cs" />
-    <Compile Include="frmBanHang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmBanHang.Designer.cs">
-      <DependentUpon>frmBanHang.cs</DependentUpon>
-    </Compile>
+    <Compile Include="frmBanHang.cs" />
     <Compile Include="frmDangKy.cs">
       <SubType>Form</SubType>
     </Compile>
