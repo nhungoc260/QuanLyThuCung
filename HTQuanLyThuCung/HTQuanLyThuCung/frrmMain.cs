@@ -54,24 +54,31 @@ namespace HTQuanLyThuCung
             dgvAppointments.DataSource = tb;
         }
 
+        private void CloseAllChildForms()
+        {
+            for (int i = panelMain.Controls.Count - 1; i >= 0; i--)
+            {
+                if (panelMain.Controls[i] is Form)
+                {
+                    Form oldForm = (Form)panelMain.Controls[i];
+                    panelMain.Controls.RemoveAt(i);
+                    oldForm.Close();
+                    oldForm.Dispose();
+                }
+            }
+        }
+
         private void btnTrangChu_Click(object sender, EventArgs e)
         {
+            CloseAllChildForms();
             LoadDashboard();
             panelDashboard.Visible = true;
-
-            // Xóa form khách hàng nếu đang mở
-            foreach (Form form in this.MdiChildren)
-            {
-                form.Close();
-            }
         }
 
         private void btnKhachHang_Click(object sender, EventArgs e)
         {
             lblTitle.Text = "Khách hàng";
             panelDashboard.Visible = false;
-
-            // ✅ MỞ FORM KHÁCH HÀNG
             OpenChildForm(new frmKhachHang());
         }
 
@@ -79,8 +86,6 @@ namespace HTQuanLyThuCung
         {
             lblTitle.Text = "Bán hàng";
             panelDashboard.Visible = false;
-
-            // ✅ ĐÃ CÓ CODE - MỞ FORM BÁN HÀNG
             OpenChildForm(new frmBanHang());
         }
 
@@ -89,7 +94,6 @@ namespace HTQuanLyThuCung
             lblTitle.Text = "Thống kê";
             panelDashboard.Visible = false;
 
-            // ✅ CHƯA LÀM - HIỆN THÔNG BÁO
             MessageBox.Show("Chức năng Thống kê đang được phát triển!\nVui lòng quay lại sau.",
                 "Thông báo",
                 MessageBoxButtons.OK,
@@ -140,22 +144,15 @@ namespace HTQuanLyThuCung
             }
         }
 
-        // ✅ HÀM MỞ FORM CON
         private void OpenChildForm(Form childForm)
         {
-            // Đóng form cũ nếu có
-            foreach (Form oldForm in this.MdiChildren)
-            {
-                oldForm.Close();
-            }
+            CloseAllChildForms();
 
-            // Cấu hình form mới
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
 
-            // Thêm vào panel chính
-            panelMain.Controls.Add(childForm);  // Thay panelMain bằng tên panel của bạn
+            panelMain.Controls.Add(childForm);
             childForm.Show();
         }
     }
