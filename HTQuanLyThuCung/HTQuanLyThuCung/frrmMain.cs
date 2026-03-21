@@ -40,15 +40,15 @@ namespace HTQuanLyThuCung
                 if (stats != null && stats.Rows.Count > 0)
                 {
                     DataRow row = stats.Rows[0];
-                    pets         = Convert.ToInt32(row["TotalPets"]);
-                    customers    = Convert.ToInt32(row["TotalCustomers"]);
-                    services     = Convert.ToInt32(row["TotalServices"]);
+                    pets = Convert.ToInt32(row["TotalPets"]);
+                    customers = Convert.ToInt32(row["TotalCustomers"]);
+                    services = Convert.ToInt32(row["TotalServices"]);
                     appointments = Convert.ToInt32(row["TotalAppointments"]);
                 }
 
-                lblPets.Text         = "🐶 Thú cưng\n"      + pets;
-                lblCustomers.Text    = "👤 Khách hàng\n"    + customers;
-                lblServices.Text     = "💅 Dịch vụ\n"       + services;
+                lblPets.Text = "🐶 Thú cưng\n" + pets;
+                lblCustomers.Text = "👤 Khách hàng\n" + customers;
+                lblServices.Text = "💅 Dịch vụ\n" + services;
                 lblAppointments.Text = "📅 Tổng lịch hẹn\n" + appointments;
 
                 LoadChart(pets, customers, services, appointments);
@@ -64,38 +64,31 @@ namespace HTQuanLyThuCung
         private void LoadChart(int pets, int customers, int services, int sales)
         {
             chartStats.Series.Clear();
-            chartStats.ChartAreas[0].BackColor     = Color.White;
-            chartStats.BackColor                   = Color.White;
-            chartStats.BorderlineColor             = Color.LightGray;
-            chartStats.BorderlineDashStyle         = ChartDashStyle.Solid;
-            chartStats.BorderlineWidth             = 1;
+            chartStats.ChartAreas[0].BackColor = Color.White;
+            chartStats.BackColor = Color.White;
+            chartStats.BorderlineColor = Color.LightGray;
+            chartStats.BorderlineDashStyle = ChartDashStyle.Solid;
+            chartStats.BorderlineWidth = 1;
 
             ChartArea area = chartStats.ChartAreas[0];
             area.AxisX.MajorGrid.LineColor = Color.FromArgb(240, 240, 240);
             area.AxisY.MajorGrid.LineColor = Color.FromArgb(240, 240, 240);
-            area.AxisX.LineColor           = Color.LightGray;
-            area.AxisY.LineColor           = Color.LightGray;
-            area.AxisX.LabelStyle.Font     = new Font("Segoe UI", 9f);
-            area.AxisY.LabelStyle.Font     = new Font("Segoe UI", 9f);
-            area.AxisY.Minimum             = 0;
+            area.AxisX.LineColor = Color.LightGray;
+            area.AxisY.LineColor = Color.LightGray;
+            area.AxisX.LabelStyle.Font = new Font("Segoe UI", 9f);
+            area.AxisY.LabelStyle.Font = new Font("Segoe UI", 9f);
+            area.AxisY.Minimum = 0;
 
             Series s = new Series("Số liệu");
-            s.ChartType           = SeriesChartType.Column;
+            s.ChartType = SeriesChartType.Column;
             s.IsValueShownAsLabel = true;
-            s.Font                = new Font("Segoe UI", 9f, FontStyle.Bold);
-            s.LabelForeColor      = Color.FromArgb(50, 50, 50);
+            s.Font = new Font("Segoe UI", 9f, FontStyle.Bold);
+            s.LabelForeColor = Color.FromArgb(50, 50, 50);
 
-            s.Points.AddXY("Thú cưng",   pets);
-            s.Points[0].Color = Color.FromArgb(52, 152, 219);
-
-            s.Points.AddXY("Khách hàng", customers);
-            s.Points[1].Color = Color.FromArgb(46, 204, 113);
-
-            s.Points.AddXY("Dịch vụ",    services);
-            s.Points[2].Color = Color.FromArgb(155, 89, 182);
-
-            s.Points.AddXY("Lịch hẹn",   sales);
-            s.Points[3].Color = Color.FromArgb(230, 126, 34);
+            s.Points.AddXY("Thú cưng", pets); s.Points[0].Color = Color.FromArgb(52, 152, 219);
+            s.Points.AddXY("Khách hàng", customers); s.Points[1].Color = Color.FromArgb(46, 204, 113);
+            s.Points.AddXY("Dịch vụ", services); s.Points[2].Color = Color.FromArgb(155, 89, 182);
+            s.Points.AddXY("Lịch hẹn", sales); s.Points[3].Color = Color.FromArgb(230, 126, 34);
 
             chartStats.Series.Add(s);
             chartStats.Legends.Clear();
@@ -112,9 +105,9 @@ namespace HTQuanLyThuCung
                         CONVERT(NVARCHAR, a.AppointmentDate, 103) AS [Thời gian],
                         c.CustomerName AS [Khách hàng]
                     FROM Appointments a
-                    INNER JOIN Pets     p ON a.PetId      = p.Id
-                    INNER JOIN Services s ON a.ServiceId  = s.Id
-                    INNER JOIN Customers c ON p.CustomerId = c.Id
+                    INNER JOIN Pets      p ON a.PetId       = p.Id
+                    INNER JOIN Services  s ON a.ServiceId   = s.Id
+                    INNER JOIN Customers c ON p.CustomerId  = c.Id
                     WHERE CAST(a.AppointmentDate AS DATE) >= CAST(GETDATE() AS DATE)
                     ORDER BY a.AppointmentDate ASC";
 
@@ -122,18 +115,14 @@ namespace HTQuanLyThuCung
                 dgvAppointments.DataSource = dt;
 
                 dgvAppointments.EnableHeadersVisualStyles = false;
-                dgvAppointments.ColumnHeadersDefaultCellStyle.BackColor =
-                    Color.FromArgb(52, 152, 219);
+                dgvAppointments.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(52, 152, 219);
                 dgvAppointments.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-                dgvAppointments.ColumnHeadersDefaultCellStyle.Font =
-                    new Font("Segoe UI", 9f, FontStyle.Bold);
+                dgvAppointments.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9f, FontStyle.Bold);
                 dgvAppointments.DefaultCellStyle.Font = new Font("Segoe UI", 9f);
-                dgvAppointments.AlternatingRowsDefaultCellStyle.BackColor =
-                    Color.FromArgb(245, 245, 245);
-                dgvAppointments.RowHeadersVisible   = false;
-                dgvAppointments.BorderStyle         = BorderStyle.None;
-                dgvAppointments.AutoSizeColumnsMode =
-                    DataGridViewAutoSizeColumnsMode.Fill;
+                dgvAppointments.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(245, 245, 245);
+                dgvAppointments.RowHeadersVisible = false;
+                dgvAppointments.BorderStyle = BorderStyle.None;
+                dgvAppointments.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
             catch (Exception ex)
             {
@@ -159,9 +148,9 @@ namespace HTQuanLyThuCung
         private void OpenChildForm(Form childForm)
         {
             CloseAllChildForms();
-            childForm.TopLevel        = false;
+            childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock            = DockStyle.Fill;
+            childForm.Dock = DockStyle.Fill;
             panelMain.Controls.Add(childForm);
             childForm.Show();
         }
@@ -175,31 +164,29 @@ namespace HTQuanLyThuCung
 
         private void btnKhachHang_Click(object sender, EventArgs e)
         {
-            lblTitle.Text          = "Khách hàng";
+            lblTitle.Text = "Khách hàng";
             panelDashboard.Visible = false;
             OpenChildForm(new frmKhachHang());
         }
 
         private void btnBanHang_Click(object sender, EventArgs e)
         {
-            lblTitle.Text          = "Bán hàng";
+            lblTitle.Text = "Bán hàng";
             panelDashboard.Visible = false;
             OpenChildForm(new frmBanHang());
         }
 
         private void btnThongKe_Click(object sender, EventArgs e)
         {
-            lblTitle.Text          = "Thống kê";
+            lblTitle.Text = "Thống kê";
             panelDashboard.Visible = false;
 
-            MessageBox.Show(
-                "Chức năng Thống kê đang được phát triển!\nVui lòng quay lại sau.",
-                "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            OpenChildForm(new frmThongKe());
         }
 
         private void btnHangHoa_Click(object sender, EventArgs e)
         {
-            lblTitle.Text          = "Hàng hóa";
+            lblTitle.Text = "Hàng hóa";
             panelDashboard.Visible = false;
             MessageBox.Show("Chức năng Hàng hóa đang được phát triển!",
                 "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -207,7 +194,7 @@ namespace HTQuanLyThuCung
 
         private void btnDichVu_Click(object sender, EventArgs e)
         {
-            lblTitle.Text          = "Dịch vụ";
+            lblTitle.Text = "Dịch vụ";
             panelDashboard.Visible = false;
             MessageBox.Show("Chức năng Dịch vụ đang được phát triển!",
                 "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -215,7 +202,7 @@ namespace HTQuanLyThuCung
 
         private void btnNhanVien_Click(object sender, EventArgs e)
         {
-            lblTitle.Text          = "Nhân viên";
+            lblTitle.Text = "Nhân viên";
             panelDashboard.Visible = false;
             MessageBox.Show("Chức năng Nhân viên đang được phát triển!",
                 "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
