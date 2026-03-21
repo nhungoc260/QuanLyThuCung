@@ -89,11 +89,8 @@ namespace HTQuanLyThuCung
             lblTitle.Text = "Thống kê";
             panelDashboard.Visible = false;
 
-            // ✅ CHƯA LÀM - HIỆN THÔNG BÁO
-            MessageBox.Show("Chức năng Thống kê đang được phát triển!\nVui lòng quay lại sau.",
-                "Thông báo",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
+            // ✅ ĐÃ TÍCH HỢP - MỞ FORM THỐNG KÊ
+            OpenChildForm(new frmThongKe());
         }
 
         private void btnHangHoa_Click(object sender, EventArgs e)
