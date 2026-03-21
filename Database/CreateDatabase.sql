@@ -79,15 +79,15 @@ GO
 CREATE TABLE TaskHistory
 (
     Id         INT IDENTITY(1,1) PRIMARY KEY,
-    TaskId     INT          NOT NULL,
-    Action     NVARCHAR(50) NOT NULL,
-    OldStatus  NVARCHAR(20) NULL,
-    NewStatus  NVARCHAR(20) NULL,
+    TaskId     INT           NOT NULL,
+    Action     NVARCHAR(50)  NOT NULL,
+    OldStatus  NVARCHAR(20)  NULL,
+    NewStatus  NVARCHAR(20)  NULL,
     Notes      NVARCHAR(500) NULL,
-    ActionDate DATETIME     NOT NULL DEFAULT GETDATE(),
-    UserId     INT          NOT NULL,
-    CONSTRAINT FK_TaskHistory_Tasks FOREIGN KEY (TaskId) REFERENCES Tasks(Id) ON DELETE CASCADE,
-    CONSTRAINT FK_TaskHistory_Users FOREIGN KEY (UserId) REFERENCES Users(Id),
+    ActionDate DATETIME      NOT NULL DEFAULT GETDATE(),
+    UserId     INT           NOT NULL,
+    CONSTRAINT FK_TaskHistory_Tasks  FOREIGN KEY (TaskId) REFERENCES Tasks(Id) ON DELETE CASCADE,
+    CONSTRAINT FK_TaskHistory_Users  FOREIGN KEY (UserId) REFERENCES Users(Id),
     CONSTRAINT CK_TaskHistory_Action CHECK (Action IN ('Created','Updated','Completed','Deleted','StatusChanged'))
 );
 GO
@@ -111,8 +111,8 @@ CREATE TABLE Settings
 );
 GO
 INSERT INTO Settings (SettingKey, SettingValue, Description) VALUES
-('MAX_LOGIN_ATTEMPTS', '5',  N'Số lần đăng nhập sai tối đa'),
-('LOCKOUT_MINUTES',    '15', N'Thời gian khóa tài khoản'),
+('MAX_LOGIN_ATTEMPTS',    '5',  N'Số lần đăng nhập sai tối đa'),
+('LOCKOUT_MINUTES',       '15', N'Thời gian khóa tài khoản'),
 ('ERROR_USERNAME_EXISTS', '-1', N'Username đã tồn tại'),
 ('ERROR_EMAIL_EXISTS',    '-2', N'Email đã tồn tại');
 GO
@@ -157,8 +157,8 @@ GO
 CREATE TABLE Services
 (
     Id          INT IDENTITY(1,1) PRIMARY KEY,
-    ServiceName NVARCHAR(100)  NOT NULL,
-    Price       DECIMAL(10,2)  NULL
+    ServiceName NVARCHAR(100) NOT NULL,
+    Price       DECIMAL(10,2) NULL
 );
 GO
 
@@ -177,9 +177,42 @@ CREATE TABLE Appointments
 GO
 
 -- =============================================
+-- 9. BẢNG HOADON
+-- =============================================
+IF OBJECT_ID('HoaDon', 'U') IS NOT NULL DROP TABLE HoaDon;
+GO
+CREATE TABLE HoaDon
+(
+    Id         INT IDENTITY(1,1) PRIMARY KEY,
+    CustomerId INT           NOT NULL,
+    NgayLap    DATETIME      NOT NULL DEFAULT GETDATE(),
+    TongTien   DECIMAL(12,2) NOT NULL DEFAULT 0,
+    NhanVien   NVARCHAR(100) NULL,
+    GhiChu     NVARCHAR(200) NULL
+);
+GO
+
+-- =============================================
+-- 10. BẢNG CHITIETHOADON
+-- =============================================
+IF OBJECT_ID('ChiTietHoaDon', 'U') IS NOT NULL DROP TABLE ChiTietHoaDon;
+GO
+CREATE TABLE ChiTietHoaDon
+(
+    Id         INT IDENTITY(1,1) PRIMARY KEY,
+    HoaDonId   INT           NOT NULL,
+    TenSanPham NVARCHAR(200) NOT NULL,
+    SoLuong    INT           NOT NULL DEFAULT 1,
+    DonGia     DECIMAL(12,2) NOT NULL DEFAULT 0,
+    ThanhTien  DECIMAL(12,2) NOT NULL DEFAULT 0,
+    LoaiHang   NVARCHAR(20)  NOT NULL DEFAULT 'SanPham'
+);
+GO
+
+-- =============================================
 -- VIEWS
 -- =============================================
-IF OBJECT_ID('vw_StatusStats','V') IS NOT NULL DROP VIEW vw_StatusStats
+IF OBJECT_ID('vw_StatusStats','V')   IS NOT NULL DROP VIEW vw_StatusStats
 GO
 CREATE VIEW vw_StatusStats AS
 SELECT Status, COUNT(*) Count FROM Tasks WHERE IsDeleted = 0 GROUP BY Status
@@ -208,33 +241,37 @@ GO
 CREATE PROCEDURE sp_UserLogin @Username NVARCHAR(50), @Password NVARCHAR(255)
 AS
 BEGIN
-    SELECT * FROM Users WHERE Username=@Username AND PasswordHash=@Password AND IsActive=1
+    SELECT * FROM Users
+    WHERE Username=@Username AND PasswordHash=@Password AND IsActive=1
 END
 GO
 
 IF OBJECT_ID('sp_ResetPassword','P') IS NOT NULL DROP PROCEDURE sp_ResetPassword
 GO
 CREATE PROCEDURE sp_ResetPassword
-    @UsernameOrEmail NVARCHAR(100), @NewPassword NVARCHAR(255), @Result INT OUTPUT
+    @UsernameOrEmail NVARCHAR(100),
+    @NewPassword     NVARCHAR(255),
+    @Result          INT OUTPUT
 AS
 BEGIN
     DECLARE @id INT, @active BIT
-    SELECT @id = Id, @active = IsActive FROM Users
-    WHERE Username = @UsernameOrEmail OR Email = @UsernameOrEmail
+    SELECT @id=Id, @active=IsActive FROM Users
+    WHERE Username=@UsernameOrEmail OR Email=@UsernameOrEmail
 
-    IF @id IS NULL  BEGIN SET @Result = -1 RETURN END
-    IF @active = 0  BEGIN SET @Result = -2 RETURN END
+    IF @id IS NULL BEGIN SET @Result=-1 RETURN END
+    IF @active=0   BEGIN SET @Result=-2 RETURN END
 
-    UPDATE Users SET PasswordHash = @NewPassword WHERE Id = @id
-    SET @Result = 1
+    UPDATE Users SET PasswordHash=@NewPassword WHERE Id=@id
+    SET @Result=1
 END
 GO
 
 IF OBJECT_ID('sp_UserRegister','P') IS NOT NULL DROP PROCEDURE sp_UserRegister
 GO
 CREATE PROCEDURE sp_UserRegister
-    @Username NVARCHAR(50), @Password NVARCHAR(255),
-    @FullName NVARCHAR(100), @Email NVARCHAR(100), @UserId INT OUTPUT
+    @Username NVARCHAR(50),  @Password NVARCHAR(255),
+    @FullName NVARCHAR(100), @Email    NVARCHAR(100),
+    @UserId   INT OUTPUT
 AS
 BEGIN
     SET NOCOUNT ON;
@@ -242,7 +279,7 @@ BEGIN
     IF EXISTS (SELECT 1 FROM Users WHERE Email=@Email)       BEGIN SET @UserId=-2 RETURN END
     INSERT INTO Users (Username,PasswordHash,FullName,Email,IsActive)
     VALUES (@Username,@Password,@FullName,@Email,1)
-    SET @UserId = SCOPE_IDENTITY()
+    SET @UserId=SCOPE_IDENTITY()
 END
 GO
 
