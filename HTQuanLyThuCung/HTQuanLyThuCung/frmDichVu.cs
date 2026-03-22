@@ -26,39 +26,40 @@ namespace HTQuanLyThuCung
 
         private void frmDichVu_Load(object sender, EventArgs e)
         {
-            isLoading = true; // Bắt đầu load; 
+            isLoading = true;
             SetupInterface();
-            LoadServices();   // Load dữ liệu
+            LoadServices();
 
-            dgvDichVu.ClearSelection(); // Bỏ chọn dòng mặc định
-            ClearForm();                // Đảm bảo TextBox trống
+            // Reset Form về trạng thái trống
+            ClearForm();
 
-            isLoading = false; // Load xong, từ bây giờ click mới hiện dữ liệu
+            // Quan trọng: Bỏ chọn dòng mặc định của DataGridView
+            this.BeginInvoke(new MethodInvoker(() => {
+                dgvDichVu.ClearSelection();
+                dgvDichVu.CurrentCell = null;
+            }));
+
+            isLoading = false;
         }
 
         void SetupInterface()
         {
-            // 1. Tắt style mặc định của Windows để tự chỉnh theo ý mình
             dgvDichVu.EnableHeadersVisualStyles = false;
 
-            // 2. Chỉnh tiêu đề (ColumnHeaders)
-            // Đặt màu nền và màu chọn (Selection) CÙNG MỘT MÀU để khi nhấp vào nó không đổi màu
-            dgvDichVu.ColumnHeadersDefaultCellStyle.BackColor = Color.White; // Hoặc Color.FromArgb(240, 240, 240) tùy bạn
-            dgvDichVu.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.White; // QUAN TRỌNG: Nhấp vào vẫn là màu trắng
+            dgvDichVu.ColumnHeadersDefaultCellStyle.BackColor = Color.White; 
+            dgvDichVu.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.White; 
 
             dgvDichVu.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
-            dgvDichVu.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.Black; // Chữ vẫn đen khi nhấp
+            dgvDichVu.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.Black; 
 
             dgvDichVu.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 12, FontStyle.Bold);
             dgvDichVu.ColumnHeadersHeight = 45;
 
-            // 3. Chỉnh phần nội dung dòng bên dưới
-            dgvDichVu.DefaultCellStyle.SelectionBackColor = Color.FromArgb(204, 229, 255); //khi chọn dòng
+            dgvDichVu.DefaultCellStyle.SelectionBackColor = Color.FromArgb(204, 229, 255); 
             dgvDichVu.DefaultCellStyle.SelectionForeColor = Color.Black;
             dgvDichVu.DefaultCellStyle.Font = new Font("Segoe UI", 11, FontStyle.Regular);
 
-            // 4. Các thiết lập sạch sẽ khác
-            dgvDichVu.RowHeadersVisible = false; // Ẩn cột số thứ tự bên trái cho đẹp
+            dgvDichVu.RowHeadersVisible = false; 
             dgvDichVu.BackgroundColor = Color.White;
             dgvDichVu.BorderStyle = BorderStyle.None;
             dgvDichVu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -72,13 +73,11 @@ namespace HTQuanLyThuCung
             string query = "SELECT * FROM Services";
             dgvDichVu.DataSource = DatabaseHelper.ExecuteQuery(query);
 
-            // KHÓA SẮP XẾP: Để thứ tự không bị chạy lung tung khi nhấn vào tiêu đề
             foreach (DataGridViewColumn column in dgvDichVu.Columns)
             {
                 column.SortMode = DataGridViewColumnSortMode.NotSortable;
             }
 
-            // Ép các dòng hiện tại to ra theo RowTemplate
             foreach (DataGridViewRow row in dgvDichVu.Rows)
             {
                 row.Height = 40;
@@ -89,7 +88,7 @@ namespace HTQuanLyThuCung
         {
             if (txtTenDichVu.Text == "" || txtGiaTien.Text == "")
             {
-                MessageBox.Show("Please enter full information!");
+                MessageBox.Show("Thêm dịch vụ thành công!");
                 return;
             }
 
@@ -154,31 +153,33 @@ namespace HTQuanLyThuCung
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+
             if (Id == -1)
             {
-                MessageBox.Show("Please select a service to delete!");
+                MessageBox.Show("Vui lòng chọn một dịch vụ từ danh sách để xóa!");
                 return;
             }
 
-            DialogResult rs = MessageBox.Show("Are you sure to delete?",
-                                              "Confirm",
-                                              MessageBoxButtons.YesNo);
+            DialogResult rs = MessageBox.Show("Bạn có chắc chắn muốn xóa dịch vụ này không?",
+                "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (rs == DialogResult.Yes)
             {
-                string query = "DELETE FROM Services WHERE ServiceId=@Id";
-
-                SqlParameter[] parameters =
+                try
                 {
-                    new SqlParameter("@Id", Id)
-                };
+                    string query = "DELETE FROM Services WHERE Id=@Id";
+                    SqlParameter[] parameters = { new SqlParameter("@Id", Id) };
 
-                DatabaseHelper.ExecuteNonQuery(query, parameters);
+                    DatabaseHelper.ExecuteNonQuery(query, parameters);
 
-                MessageBox.Show("Delete successfully!");
-
-                LoadServices();
-                ClearForm();
+                    MessageBox.Show("Xóa thành công!");
+                    LoadServices(); // Nạp lại bảng
+                    ClearForm();    // Reset Id về -1
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi xóa: " + ex.Message);
+                }
             }
         }
 
@@ -190,18 +191,38 @@ namespace HTQuanLyThuCung
             Id = -1;
         }
 
-        private void dgvDichVu_SelectionChanged(object sender, EventArgs e)
+        private void btnLichHen_Click(object sender, EventArgs e)
         {
-            // Nếu đang load app HOẶC chưa chọn dòng nào thì thoát, không hiện lên TextBox
-            if (isLoading || dgvDichVu.SelectedRows.Count == 0) return;
+            frmLichHen f = new frmLichHen();
+            f.StartPosition = FormStartPosition.CenterScreen;
+            f.ShowDialog(); 
+        }
 
-            DataGridViewRow row = dgvDichVu.SelectedRows[0];
-            if (row.Cells[0].Value != null && row.Cells[0].Value != DBNull.Value)
+        private void btnDanhGia_Click(object sender, EventArgs e)
+        {
+            frmKHDanhGia f = new frmKHDanhGia();
+            // Đảm bảo Form không bị tự ý co dãn theo Font hệ thống
+            f.AutoScaleMode = AutoScaleMode.None;
+            f.StartPosition = FormStartPosition.CenterScreen;
+            f.ShowDialog();
+        }
+
+        private void dgvDichVu_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Kiểm tra nếu nhấp vào hàng hợp lệ (không phải tiêu đề)
+            if (e.RowIndex >= 0)
             {
-                Id = Convert.ToInt32(row.Cells[0].Value);
-                txtTenDichVu.Text = row.Cells[1].Value?.ToString();
-                txtGiaTien.Text = row.Cells[2].Value?.ToString();
-                txtChiTiet.Text = row.Cells[3].Value?.ToString();
+                DataGridViewRow row = dgvDichVu.Rows[e.RowIndex];
+
+                // Kiểm tra Id có giá trị không
+                if (row.Cells[0].Value != null && row.Cells[0].Value != DBNull.Value)
+                {
+                    Id = Convert.ToInt32(row.Cells[0].Value);
+                    // Gán dữ liệu vào Textbox
+                    txtTenDichVu.Text = row.Cells[1].Value?.ToString();
+                    txtGiaTien.Text = row.Cells[2].Value?.ToString();
+                    txtChiTiet.Text = row.Cells[3].Value?.ToString();
+                }
             }
         }
     }

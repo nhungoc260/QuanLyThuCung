@@ -84,7 +84,7 @@ namespace HTQuanLyThuCung
         {
             ResetButton();
 
-            btn.BackColor = Color.FromArgb(0, 150, 136); // xanh đẹp hơn cam
+            btn.BackColor = Color.FromArgb(0, 150, 136); 
             btn.ForeColor = Color.White;
 
             dichVuDaChon = tenDichVu;
@@ -121,21 +121,18 @@ namespace HTQuanLyThuCung
 
         private void btnGui_Click(object sender, EventArgs e)
         {
-            // kiểm tra dịch vụ
             if (dichVuDaChon == "")
             {
                 MessageBox.Show("Vui lòng chọn dịch vụ!");
                 return;
             }
 
-            // kiểm tra số sao
             if (rating == 0)
             {
                 MessageBox.Show("Vui lòng chọn số sao đánh giá!");
                 return;
             }
 
-            // nhận xét có thể có hoặc không
             string nhanXet = txtNhanXet.Text;
 
             MessageBox.Show(
@@ -145,7 +142,6 @@ namespace HTQuanLyThuCung
                 MessageBoxIcon.Information
             );
 
-            // reset form
             txtNhanXet.Text = "";
             rating = 0;
             dichVuDaChon = "";

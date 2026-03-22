@@ -71,7 +71,7 @@
             this.pnlKHDG.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlKHDG.Location = new System.Drawing.Point(0, 0);
             this.pnlKHDG.Name = "pnlKHDG";
-            this.pnlKHDG.Size = new System.Drawing.Size(777, 688);
+            this.pnlKHDG.Size = new System.Drawing.Size(707, 729);
             this.pnlKHDG.TabIndex = 0;
             // 
             // panel2
@@ -99,13 +99,13 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 54);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(777, 634);
+            this.panel2.Size = new System.Drawing.Size(707, 675);
             this.panel2.TabIndex = 1;
             // 
             // btnXoaAnh
             // 
             this.btnXoaAnh.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnXoaAnh.Location = new System.Drawing.Point(18, 460);
+            this.btnXoaAnh.Location = new System.Drawing.Point(18, 490);
             this.btnXoaAnh.Name = "btnXoaAnh";
             this.btnXoaAnh.Size = new System.Drawing.Size(31, 39);
             this.btnXoaAnh.TabIndex = 36;
@@ -115,10 +115,10 @@
             // 
             // btnChonAnh
             // 
-            this.btnChonAnh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnChonAnh.Location = new System.Drawing.Point(55, 420);
+            this.btnChonAnh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnChonAnh.Location = new System.Drawing.Point(55, 452);
             this.btnChonAnh.Name = "btnChonAnh";
-            this.btnChonAnh.Size = new System.Drawing.Size(120, 120);
+            this.btnChonAnh.Size = new System.Drawing.Size(129, 120);
             this.btnChonAnh.TabIndex = 35;
             this.btnChonAnh.Text = "📷 Tải ảnh lên";
             this.btnChonAnh.UseVisualStyleBackColor = true;
@@ -127,9 +127,9 @@
             // picAnh
             // 
             this.picAnh.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picAnh.Location = new System.Drawing.Point(190, 420);
+            this.picAnh.Location = new System.Drawing.Point(209, 452);
             this.picAnh.Name = "picAnh";
-            this.picAnh.Size = new System.Drawing.Size(120, 120);
+            this.picAnh.Size = new System.Drawing.Size(129, 120);
             this.picAnh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picAnh.TabIndex = 34;
             this.picAnh.TabStop = false;
@@ -139,9 +139,9 @@
             // 
             this.btnGui.BackColor = System.Drawing.Color.Gainsboro;
             this.btnGui.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnGui.Location = new System.Drawing.Point(12, 565);
+            this.btnGui.Location = new System.Drawing.Point(10, 600);
             this.btnGui.Name = "btnGui";
-            this.btnGui.Size = new System.Drawing.Size(755, 57);
+            this.btnGui.Size = new System.Drawing.Size(691, 57);
             this.btnGui.TabIndex = 33;
             this.btnGui.Text = "Gửi đánh giá ➤";
             this.btnGui.UseVisualStyleBackColor = false;
@@ -150,39 +150,37 @@
             // txtNhanXet
             // 
             this.txtNhanXet.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtNhanXet.Location = new System.Drawing.Point(18, 287);
+            this.txtNhanXet.Location = new System.Drawing.Point(18, 307);
             this.txtNhanXet.Multiline = true;
             this.txtNhanXet.Name = "txtNhanXet";
-            this.txtNhanXet.Size = new System.Drawing.Size(733, 90);
+            this.txtNhanXet.Size = new System.Drawing.Size(666, 90);
             this.txtNhanXet.TabIndex = 32;
             this.txtNhanXet.TextChanged += new System.EventHandler(this.txtNhanXet_TextChanged);
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label7.Location = new System.Drawing.Point(18, 392);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label7.Location = new System.Drawing.Point(19, 416);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(298, 25);
+            this.label7.Size = new System.Drawing.Size(252, 22);
             this.label7.TabIndex = 31;
             this.label7.Text = "📷 Hình ảnh thú cưng của bạn";
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label6.Location = new System.Drawing.Point(13, 259);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label6.Location = new System.Drawing.Point(14, 282);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(195, 25);
+            this.label6.Size = new System.Drawing.Size(166, 22);
             this.label6.TabIndex = 30;
             this.label6.Text = "💬 Nhận xét chi tiết";
             // 
             // btnKhamSucKhoe
             // 
             this.btnKhamSucKhoe.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnKhamSucKhoe.Location = new System.Drawing.Point(18, 115);
+            this.btnKhamSucKhoe.Location = new System.Drawing.Point(23, 126);
             this.btnKhamSucKhoe.Name = "btnKhamSucKhoe";
-            this.btnKhamSucKhoe.Size = new System.Drawing.Size(166, 43);
+            this.btnKhamSucKhoe.Size = new System.Drawing.Size(143, 43);
             this.btnKhamSucKhoe.TabIndex = 29;
             this.btnKhamSucKhoe.Text = "Khám sức khỏe";
             this.btnKhamSucKhoe.UseVisualStyleBackColor = true;
@@ -191,9 +189,9 @@
             // btnTam
             // 
             this.btnTam.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnTam.Location = new System.Drawing.Point(325, 115);
+            this.btnTam.Location = new System.Drawing.Point(321, 126);
             this.btnTam.Name = "btnTam";
-            this.btnTam.Size = new System.Drawing.Size(129, 43);
+            this.btnTam.Size = new System.Drawing.Size(143, 43);
             this.btnTam.TabIndex = 28;
             this.btnTam.Text = "Tắm Spa";
             this.btnTam.UseVisualStyleBackColor = true;
@@ -202,9 +200,9 @@
             // btnCatTiaLong
             // 
             this.btnCatTiaLong.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnCatTiaLong.Location = new System.Drawing.Point(460, 115);
+            this.btnCatTiaLong.Location = new System.Drawing.Point(470, 126);
             this.btnCatTiaLong.Name = "btnCatTiaLong";
-            this.btnCatTiaLong.Size = new System.Drawing.Size(179, 43);
+            this.btnCatTiaLong.Size = new System.Drawing.Size(143, 43);
             this.btnCatTiaLong.TabIndex = 27;
             this.btnCatTiaLong.Text = "Cắt tỉa móng";
             this.btnCatTiaLong.UseVisualStyleBackColor = true;
@@ -213,9 +211,9 @@
             // btnTiemPhong
             // 
             this.btnTiemPhong.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnTiemPhong.Location = new System.Drawing.Point(190, 115);
+            this.btnTiemPhong.Location = new System.Drawing.Point(172, 126);
             this.btnTiemPhong.Name = "btnTiemPhong";
-            this.btnTiemPhong.Size = new System.Drawing.Size(129, 43);
+            this.btnTiemPhong.Size = new System.Drawing.Size(143, 43);
             this.btnTiemPhong.TabIndex = 26;
             this.btnTiemPhong.Text = "Tiêm phòng";
             this.btnTiemPhong.UseVisualStyleBackColor = true;
@@ -224,7 +222,7 @@
             // picStar2
             // 
             this.picStar2.Image = ((System.Drawing.Image)(resources.GetObject("picStar2.Image")));
-            this.picStar2.Location = new System.Drawing.Point(67, 203);
+            this.picStar2.Location = new System.Drawing.Point(67, 216);
             this.picStar2.Name = "picStar2";
             this.picStar2.Size = new System.Drawing.Size(38, 38);
             this.picStar2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -235,7 +233,7 @@
             // picStar3
             // 
             this.picStar3.Image = ((System.Drawing.Image)(resources.GetObject("picStar3.Image")));
-            this.picStar3.Location = new System.Drawing.Point(113, 203);
+            this.picStar3.Location = new System.Drawing.Point(113, 216);
             this.picStar3.Name = "picStar3";
             this.picStar3.Size = new System.Drawing.Size(38, 38);
             this.picStar3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -246,7 +244,7 @@
             // picStar4
             // 
             this.picStar4.Image = ((System.Drawing.Image)(resources.GetObject("picStar4.Image")));
-            this.picStar4.Location = new System.Drawing.Point(155, 203);
+            this.picStar4.Location = new System.Drawing.Point(155, 216);
             this.picStar4.Name = "picStar4";
             this.picStar4.Size = new System.Drawing.Size(38, 38);
             this.picStar4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -257,7 +255,7 @@
             // picStar5
             // 
             this.picStar5.Image = ((System.Drawing.Image)(resources.GetObject("picStar5.Image")));
-            this.picStar5.Location = new System.Drawing.Point(199, 203);
+            this.picStar5.Location = new System.Drawing.Point(199, 216);
             this.picStar5.Name = "picStar5";
             this.picStar5.Size = new System.Drawing.Size(38, 38);
             this.picStar5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -268,7 +266,7 @@
             // picStar1
             // 
             this.picStar1.Image = ((System.Drawing.Image)(resources.GetObject("picStar1.Image")));
-            this.picStar1.Location = new System.Drawing.Point(23, 203);
+            this.picStar1.Location = new System.Drawing.Point(23, 216);
             this.picStar1.Name = "picStar1";
             this.picStar1.Size = new System.Drawing.Size(38, 38);
             this.picStar1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -278,29 +276,26 @@
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label5.Location = new System.Drawing.Point(19, 175);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label5.Location = new System.Drawing.Point(19, 187);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(201, 25);
+            this.label5.Size = new System.Drawing.Size(169, 22);
             this.label5.TabIndex = 20;
             this.label5.Text = "⭐ Đánh giá của bạn";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label4.Location = new System.Drawing.Point(13, 87);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label4.Location = new System.Drawing.Point(19, 82);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(280, 25);
+            this.label4.Size = new System.Drawing.Size(236, 22);
             this.label4.TabIndex = 19;
             this.label4.Text = "✅ Chọn dịch vụ đã sử dụng";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label3.Location = new System.Drawing.Point(15, 49);
+            this.label3.Location = new System.Drawing.Point(20, 49);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(664, 18);
             this.label3.TabIndex = 18;
@@ -309,11 +304,10 @@
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label2.Location = new System.Drawing.Point(12, 13);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label2.Location = new System.Drawing.Point(18, 16);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(319, 36);
+            this.label2.Size = new System.Drawing.Size(304, 33);
             this.label2.TabIndex = 17;
             this.label2.Text = "Gửi đánh giá của bạn";
             // 
@@ -324,25 +318,24 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(777, 54);
+            this.panel1.Size = new System.Drawing.Size(707, 54);
             this.panel1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label1.ForeColor = System.Drawing.Color.DarkRed;
-            this.label1.Location = new System.Drawing.Point(3, 8);
+            this.label1.Location = new System.Drawing.Point(4, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(274, 36);
+            this.label1.Size = new System.Drawing.Size(183, 28);
             this.label1.TabIndex = 34;
             this.label1.Text = "🐾 Z618 Pet Shop";
             // 
             // frmKHDanhGia
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(777, 688);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(707, 729);
             this.Controls.Add(this.pnlKHDG);
             this.Name = "frmKHDanhGia";
             this.Text = "Khách Hàng Đánh Giá";
@@ -363,6 +356,7 @@
         }
 
         #endregion
+
 
         private System.Windows.Forms.Panel pnlKHDG;
         private System.Windows.Forms.Panel panel1;

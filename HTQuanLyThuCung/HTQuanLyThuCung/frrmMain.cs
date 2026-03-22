@@ -131,10 +131,12 @@ namespace HTQuanLyThuCung
             lblTitle.Text = "Nhân viên";
             panelDashboard.Visible = false;
 
-            MessageBox.Show("Chức năng Nhân viên đang được phát triển!",
-                "Thông báo",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
+            OpenChildForm(new frmNhanVien());
+
+            //MessageBox.Show("Chức năng Nhân viên đang được phát triển!",
+               // "Thông báo",
+               // MessageBoxButtons.OK,
+               // MessageBoxIcon.Information);
         }
 
         private void btnDangXuat_Click(object sender, EventArgs e)
