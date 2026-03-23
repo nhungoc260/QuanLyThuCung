@@ -80,7 +80,9 @@
     <Compile Include="frmDangNhap.Designer.cs">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmDanhGia.cs" />
+    <Compile Include="frmDanhGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmDanhGia.Designer.cs">
       <DependentUpon>frmDanhGia.cs</DependentUpon>
     </Compile>

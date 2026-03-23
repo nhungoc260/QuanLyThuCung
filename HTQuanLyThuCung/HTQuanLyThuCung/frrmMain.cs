@@ -105,9 +105,9 @@ namespace HTQuanLyThuCung
                         CONVERT(NVARCHAR, a.AppointmentDate, 103) AS [Thời gian],
                         c.CustomerName AS [Khách hàng]
                     FROM Appointments a
-                    INNER JOIN Pets      p ON a.PetId       = p.Id
-                    INNER JOIN Services  s ON a.ServiceId   = s.Id
-                    INNER JOIN Customers c ON p.CustomerId  = c.Id
+                    INNER JOIN Pets      p ON a.PetId      = p.Id
+                    INNER JOIN Services  s ON a.ServiceId  = s.Id
+                    INNER JOIN Customers c ON p.CustomerId = c.Id
                     WHERE CAST(a.AppointmentDate AS DATE) >= CAST(GETDATE() AS DATE)
                     ORDER BY a.AppointmentDate ASC";
 
@@ -115,14 +115,18 @@ namespace HTQuanLyThuCung
                 dgvAppointments.DataSource = dt;
 
                 dgvAppointments.EnableHeadersVisualStyles = false;
-                dgvAppointments.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(52, 152, 219);
+                dgvAppointments.ColumnHeadersDefaultCellStyle.BackColor =
+                    Color.FromArgb(52, 152, 219);
                 dgvAppointments.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-                dgvAppointments.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9f, FontStyle.Bold);
+                dgvAppointments.ColumnHeadersDefaultCellStyle.Font =
+                    new Font("Segoe UI", 9f, FontStyle.Bold);
                 dgvAppointments.DefaultCellStyle.Font = new Font("Segoe UI", 9f);
-                dgvAppointments.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(245, 245, 245);
+                dgvAppointments.AlternatingRowsDefaultCellStyle.BackColor =
+                    Color.FromArgb(245, 245, 245);
                 dgvAppointments.RowHeadersVisible = false;
                 dgvAppointments.BorderStyle = BorderStyle.None;
-                dgvAppointments.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dgvAppointments.AutoSizeColumnsMode =
+                    DataGridViewAutoSizeColumnsMode.Fill;
             }
             catch (Exception ex)
             {
@@ -180,7 +184,6 @@ namespace HTQuanLyThuCung
         {
             lblTitle.Text = "Thống kê";
             panelDashboard.Visible = false;
-
             OpenChildForm(new frmThongKe());
         }
 
@@ -196,30 +199,14 @@ namespace HTQuanLyThuCung
         {
             lblTitle.Text = "Dịch vụ";
             panelDashboard.Visible = false;
-
             OpenChildForm(new frmDichVu());
-
-            //MessageBox.Show("Chức năng Dịch vụ đang được phát triển!",
-            //"Thông báo",
-            //MessageBoxButtons.OK,
-            //MessageBoxIcon.Information);
-            MessageBox.Show("Chức năng Dịch vụ đang được phát triển!",
-                "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnNhanVien_Click(object sender, EventArgs e)
         {
             lblTitle.Text = "Nhân viên";
             panelDashboard.Visible = false;
-
             OpenChildForm(new frmNhanVien());
-
-            //MessageBox.Show("Chức năng Nhân viên đang được phát triển!",
-               // "Thông báo",
-               // MessageBoxButtons.OK,
-               // MessageBoxIcon.Information);
-            MessageBox.Show("Chức năng Nhân viên đang được phát triển!",
-                "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnDangXuat_Click(object sender, EventArgs e)
