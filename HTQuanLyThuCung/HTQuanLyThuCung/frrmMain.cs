@@ -125,8 +125,7 @@ namespace HTQuanLyThuCung
                     Color.FromArgb(245, 245, 245);
                 dgvAppointments.RowHeadersVisible = false;
                 dgvAppointments.BorderStyle = BorderStyle.None;
-                dgvAppointments.AutoSizeColumnsMode =
-                    DataGridViewAutoSizeColumnsMode.Fill;
+                dgvAppointments.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
             catch (Exception ex)
             {
@@ -191,8 +190,7 @@ namespace HTQuanLyThuCung
         {
             lblTitle.Text = "Hàng hóa";
             panelDashboard.Visible = false;
-            MessageBox.Show("Chức năng Hàng hóa đang được phát triển!",
-                "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            OpenChildForm(new frmSanPham());
         }
 
         private void btnDichVu_Click(object sender, EventArgs e)

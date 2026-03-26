@@ -159,7 +159,7 @@ CREATE TABLE Services
     Id          INT IDENTITY(1,1) PRIMARY KEY,
     ServiceName NVARCHAR(100) NOT NULL,
     Price       DECIMAL(10,2) NULL,
-    Description NVARCHAR(500) NULL    -- ✅ Thêm mới
+    Description NVARCHAR(500) NULL
 );
 GO
 
@@ -207,6 +207,25 @@ CREATE TABLE ChiTietHoaDon
     DonGia     DECIMAL(12,2) NOT NULL DEFAULT 0,
     ThanhTien  DECIMAL(12,2) NOT NULL DEFAULT 0,
     LoaiHang   NVARCHAR(20)  NOT NULL DEFAULT 'SanPham'
+);
+GO
+
+-- =============================================
+-- 11. BẢNG SANPHAM
+-- =============================================
+IF OBJECT_ID('SanPham', 'U') IS NOT NULL DROP TABLE SanPham;
+GO
+CREATE TABLE SanPham
+(
+    MaSP      INT IDENTITY(1,1) PRIMARY KEY,
+    TenSP     NVARCHAR(200)  NOT NULL,
+    LoaiSP    NVARCHAR(100)  NULL DEFAULT N'Chưa phân loại',
+    Gia       DECIMAL(12,2)  NOT NULL DEFAULT 0,
+    GiaXuat   DECIMAL(12,2)  NOT NULL DEFAULT 0,
+    SoLuong   INT            NOT NULL DEFAULT 0,
+    TrangThai NVARCHAR(50)   NULL DEFAULT N'Còn hàng',
+    NgayNhap  DATETIME       NULL DEFAULT GETDATE(),
+    MoTa      NVARCHAR(500)  NULL
 );
 GO
 

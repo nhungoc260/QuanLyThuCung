@@ -53,14 +53,12 @@ BEGIN
         ALTER TABLE Customers ADD OtherInfo NVARCHAR(200) NULL;
 END
 
--- Thêm cột Description cho Services nếu chưa có
 IF OBJECT_ID('Services') IS NOT NULL
 BEGIN
     IF NOT EXISTS (SELECT 1 FROM sys.columns WHERE object_id=OBJECT_ID('Services') AND name='Description')
         ALTER TABLE Services ADD Description NVARCHAR(500) NULL;
 END
 
--- Thêm bảng HoaDon nếu chưa có
 IF OBJECT_ID('HoaDon') IS NULL
 BEGIN
     CREATE TABLE HoaDon (
@@ -73,7 +71,6 @@ BEGIN
     )
 END
 
--- Thêm bảng ChiTietHoaDon nếu chưa có
 IF OBJECT_ID('ChiTietHoaDon') IS NULL
 BEGIN
     CREATE TABLE ChiTietHoaDon (
@@ -201,7 +198,7 @@ BEGIN
 END
 
 -- =============================================
--- 15 HÓA ĐƠN
+-- HÓA ĐƠN
 -- =============================================
 IF NOT EXISTS (SELECT 1 FROM HoaDon)
 BEGIN
@@ -248,6 +245,30 @@ BEGIN
     PRINT 'Đã tạo ChiTietHoaDon'
 END
 
+-- =============================================
+-- SANPHAM
+-- =============================================
+IF NOT EXISTS (SELECT 1 FROM SanPham)
+BEGIN
+    INSERT INTO SanPham (TenSP, LoaiSP, Gia, GiaXuat, SoLuong, TrangThai, MoTa) VALUES
+    (N'Thức ăn chó Royal Canin 1kg',  N'Thức ăn',  120000, 150000, 50, N'Còn hàng',  N'Thức ăn hạt cho chó trưởng thành'),
+    (N'Thức ăn mèo Whiskas 500g',     N'Thức ăn',   45000,  60000, 80, N'Còn hàng',  N'Thức ăn hạt cho mèo'),
+    (N'Thức ăn chó Pedigree 3kg',     N'Thức ăn',  200000, 260000, 30, N'Còn hàng',  N'Thức ăn hạt dinh dưỡng cho chó'),
+    (N'Vòng cổ chó size M',           N'Phụ kiện',  35000,  50000, 30, N'Còn hàng',  N'Vòng cổ da cho chó cỡ vừa'),
+    (N'Lược chải lông thú cưng',      N'Phụ kiện',  25000,  40000, 15, N'Sắp hết',   N'Lược chải lông mềm đa năng'),
+    (N'Áo cho chó size S',            N'Phụ kiện',  55000,  80000, 20, N'Còn hàng',  N'Áo thun cho chó nhỏ'),
+    (N'Chuồng mèo inox',              N'Chuồng',   350000, 450000, 10, N'Còn hàng',  N'Chuồng inox cao cấp'),
+    (N'Chuồng chó nhựa size L',       N'Chuồng',   280000, 370000,  8, N'Còn hàng',  N'Chuồng nhựa chắc chắn cho chó lớn'),
+    (N'Đồ chơi bóng cao su cho chó',  N'Đồ chơi',   20000,  35000,  5, N'Sắp hết',   N'Bóng cao su an toàn cho thú cưng'),
+    (N'Đồ chơi chuột nhồi bông',      N'Đồ chơi',   30000,  45000, 25, N'Còn hàng',  N'Đồ chơi chuột cho mèo'),
+    (N'Sữa tắm thú cưng 250ml',       N'Vệ sinh',   55000,  75000, 25, N'Còn hàng',  N'Sữa tắm thơm dịu cho thú cưng'),
+    (N'Cát vệ sinh mèo 5L',           N'Vệ sinh',   80000, 110000,  0, N'Hết hàng',  N'Cát vệ sinh không mùi cho mèo'),
+    (N'Khăn tắm thú cưng',            N'Vệ sinh',   40000,  60000, 18, N'Còn hàng',  N'Khăn siêu thấm cho thú cưng'),
+    (N'Vitamin tổng hợp cho chó',     N'Thuốc',     95000, 130000, 12, N'Còn hàng',  N'Bổ sung vitamin cho chó'),
+    (N'Thuốc nhỏ gáy trị ve chó',     N'Thuốc',     75000, 100000,  0, N'Hết hàng',  N'Thuốc trị ve rận cho chó')
+    PRINT 'Đã tạo 15 SanPham'
+END
+
 DROP TABLE #TempNames
 
 PRINT '===================================='
@@ -260,4 +281,5 @@ SELECT * FROM Pets;
 SELECT * FROM Services;
 SELECT * FROM Appointments;
 SELECT * FROM HoaDon;
+SELECT * FROM SanPham;
 GO
